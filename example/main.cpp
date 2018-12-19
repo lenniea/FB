@@ -22,12 +22,10 @@ int main(int argc, char** argv)
     auto p = 2;
     auto maxIterationCount = 20;
 
-    auto srFactor = 2;
-    auto bufferSize = 4;
+    int bufferSize = 20;
+    int srFactor = 4;
 
     superResolution->SetProps(alpha, beta, lambda, p, maxIterationCount);
-    superResolution->SetBufferSize(bufferSize);
-    superResolution->SetSRFactor(srFactor);
 
     /*******************************************************************************
      *
@@ -56,8 +54,7 @@ int main(int argc, char** argv)
 //    auto totalImageCount = 61;
 //    auto fileNameFormat = "../data/Adyoron/%06d.png";
 //    auto resultNameFormat = "../result/Adyoron_4*4_result_%02d.png";
-//    superResolution->SetBufferSize(20);
-//    superResolution->SetSRFactor(4);
+//    bufferSize = 20;
     /*******************************
     *
     *  This is test case for EIA,
@@ -69,8 +66,7 @@ int main(int argc, char** argv)
 //    auto totalImageCount = 16;
 //    auto fileNameFormat = "../data/eia/%06d.png";
 //    auto resultNameFormat = "../result/eia_4*4_result_%02d.png";
-//    superResolution->SetBufferSize(totalImageCount);
-//    superResolution->SetSRFactor(4);
+//    bufferSize = totalImageCount;
 
     /*******************************
     *
@@ -83,8 +79,7 @@ int main(int argc, char** argv)
 //    auto totalImageCount = 29;
 //    auto fileNameFormat = "../data/text/%06d.png";
 //    auto resultNameFormat = "../result/text_4*4_result_%02d.png";
-//    superResolution->SetBufferSize(29);
-//    superResolution->SetSRFactor(4);
+//    bufferSize = 29;
 
     /*******************************
      *
@@ -93,12 +88,29 @@ int main(int argc, char** argv)
      *  Emliy test case result
      *
      ******************************/
-    	auto startIndex = 1;
+    	auto startIndex = 0;
     	auto totalImageCount = 82;
     	auto fileNameFormat = "../data/Emily/%06d.png";
     	auto resultNameFormat = "../result/Emily_4*4_result_%02d.png";
-    	superResolution->SetBufferSize(53);
-    	superResolution->SetSRFactor(4);
+        bufferSize = 53;
+
+    // Override default parameters if supplied on command line
+    if (argc == 7)
+    {
+        startIndex = atoi(argv[1]);
+        totalImageCount = atoi(argv[2]);
+        fileNameFormat = argv[3];
+        resultNameFormat = argv[4];
+        bufferSize = atoi(argv[5]);
+        srFactor = atoi(argv[6]);
+    }
+    // Echo super resolution parameters
+    cout << "startIndex=" << startIndex << " totalImageCount=" << totalImageCount << " fileNameFormat=" << fileNameFormat << endl;
+    cout << "resultNameformat=" << resultNameFormat << " bufferSize=" << bufferSize << " srFactor=" << srFactor << endl;
+
+    superResolution->SetBufferSize(bufferSize);
+    superResolution->SetSRFactor(4);
+
 
 
     auto imageListFrameSource = FrameSourceFactory::createFrameSourceFromImageList(totalImageCount, fileNameFormat,
@@ -115,7 +127,7 @@ int main(int argc, char** argv)
     Mat currentFrame;
     while (true)
     {
-        cout << index << "..";
+        cout << index << endl;
         auto currentStatus = superResolution->NextFrame(currentFrame);
 
         imshow("High Resolution Frame", currentFrame);
@@ -131,7 +143,7 @@ int main(int argc, char** argv)
 
         ++index;
     }
-    cv::waitKey(0);
+//    cv::waitKey(0);
     destroyAllWindows();
 
     cout << endl;

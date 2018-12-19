@@ -27,7 +27,7 @@ add_library(${PROJECT_NAME} SHARED ${SOURCE_FILE_LIST})
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 
 # 构建example
-OPTION(BUILD_EXAMPLE ON)
+OPTION(BUILD_EXAMPLE "build example" ON)
 IF (BUILD_EXAMPLE)
 
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/example)

@@ -1,7 +1,11 @@
 #pragma once
-#include "FrameSource/FrameSource.h"
 
-class EmptyFrameSource : public FrameSource
+#include "opencv2/core.hpp"
+#include "opencv2/superres.hpp"
+
+using namespace std;
+
+class EmptyFrameSource : public cv::superres::FrameSource
 {
 public:
 	void nextFrame(cv::OutputArray frame) override;

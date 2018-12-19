@@ -1,5 +1,6 @@
 #include <opencv2/highgui.hpp>
-#include <opencv2/contrib/contrib.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+
 #include <iostream>
 
 #include "SuperResolution/SuperResolutionBase.h"
@@ -152,7 +153,7 @@ void SuperResolutionBase::MedianAndShift(const vector<Mat>& interp_previous_fram
 	if (X.size() != 0)
 	{
 		Mat meidianBlurMatOfMatZ;
-		medianBlur(Z, meidianBlurMatOfMatZ, 3);
+		cv::medianBlur(Z, meidianBlurMatOfMatZ, 3);
 
 		auto rowCount = Z.rows;
 		auto colCount = Z.cols;
@@ -182,7 +183,7 @@ void SuperResolutionBase::MedianAndShift(const vector<Mat>& interp_previous_fram
 Mat SuperResolutionBase::FastGradientBackProject(const Mat& Xn, const Mat& Z, const Mat& A, const Mat& hpsf)
 {
 	Mat matZAfterGaussianFilter;
-	filter2D(Xn, matZAfterGaussianFilter, CV_32FC1, hpsf, Point(-1, -1), 0, BORDER_REFLECT);
+	cv::filter2D(Xn, matZAfterGaussianFilter, CV_32FC1, hpsf, Point(-1, -1), 0, BORDER_REFLECT);
 
 	Mat diffOfZandMedianFiltedZ;
 	subtract(matZAfterGaussianFilter, Z, diffOfZandMedianFiltedZ);
@@ -197,7 +198,7 @@ Mat SuperResolutionBase::FastGradientBackProject(const Mat& Xn, const Mat& Z, co
 	Mat multiplyOfGsingAndMatA = A.mul(Gsign);
 
 	Mat filterResult;
-	filter2D(multiplyOfGsingAndMatA, filterResult, CV_32FC1, inversedHpsf, Point(-1, -1), 0, BORDER_REFLECT);
+	cv::filter2D(multiplyOfGsingAndMatA, filterResult, CV_32FC1, inversedHpsf, Point(-1, -1), 0, BORDER_REFLECT);
 
 	return filterResult;
 }
