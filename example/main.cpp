@@ -53,7 +53,7 @@ int main(int argc, char** argv)
 //    auto startIndex = 0;
 //    auto totalImageCount = 61;
 //    auto fileNameFormat = "../data/Adyoron/%06d.png";
-//    auto resultNameFormat = "../result/Adyoron_4*4_result_%02d.png";
+//    auto resultNameFormat = "../result/Adyoron_4x4_result_%02d.png";
 //    bufferSize = 20;
     /*******************************
     *
@@ -65,7 +65,7 @@ int main(int argc, char** argv)
 //    auto startIndex = 0;
 //    auto totalImageCount = 16;
 //    auto fileNameFormat = "../data/eia/%06d.png";
-//    auto resultNameFormat = "../result/eia_4*4_result_%02d.png";
+//    auto resultNameFormat = "../result/eia_4x4_result_%02d.png";
 //    bufferSize = totalImageCount;
 
     /*******************************
@@ -78,7 +78,7 @@ int main(int argc, char** argv)
 //    auto startIndex = 1;
 //    auto totalImageCount = 29;
 //    auto fileNameFormat = "../data/text/%06d.png";
-//    auto resultNameFormat = "../result/text_4*4_result_%02d.png";
+//    auto resultNameFormat = "../result/text_4x4_result_%02d.png";
 //    bufferSize = 29;
 
     /*******************************
@@ -91,7 +91,7 @@ int main(int argc, char** argv)
     	auto startIndex = 0;
     	auto totalImageCount = 82;
     	auto fileNameFormat = "../data/Emily/%06d.png";
-    	auto resultNameFormat = "../result/Emily_4*4_result_%02d.png";
+    	auto resultNameFormat = "../result/Emily_4x4_result_%02d.png";
         bufferSize = 53;
 
     // Override default parameters if supplied on command line
