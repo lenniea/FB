@@ -1,7 +1,7 @@
 ﻿#ifndef __LKOFLOW_H__
 #define __LKOFLOW_H__
 
-#include <opencv2/core.hpp>
+#include <opencv2/core/core.hpp>
 #include <vector>
 
 class LKOFlow

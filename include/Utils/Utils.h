@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <algorithm>
-#include <opencv2/core.hpp>
+#include <opencv2/core/core.hpp>
 
 class Utils
 {

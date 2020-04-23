@@ -23,7 +23,7 @@ set(SOURCE_FILE_LIST src/LKOFlow/LKOFlow.cpp
         src/SuperResolution/SuperResolutionBase.cpp
         src/Utils/Utils.cpp)
 
-add_library(${PROJECT_NAME} SHARED ${SOURCE_FILE_LIST})
+add_library(${PROJECT_NAME} STATIC ${SOURCE_FILE_LIST})
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 
 # 构建example

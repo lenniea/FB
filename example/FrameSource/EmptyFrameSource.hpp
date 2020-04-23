@@ -1,7 +1,7 @@
 #pragma once
 
-#include "opencv2/core.hpp"
-#include "opencv2/superres.hpp"
+#include "opencv2/core/core.hpp"
+#include "opencv2/superres/superres.hpp"
 
 using namespace std;
 

@@ -1,8 +1,12 @@
 #pragma once
-#include <opencv2/core.hpp>
+#include <opencv2/core/core.hpp>
 #include <vector>
-#include <opencv2/highgui.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include "ImageListReaderBase.hpp"
+
+#ifdef _MSC_VER
+#define snprintf		_snprintf
+#endif
 
 class ImageListReader : public ImageListReaderBase
 {
