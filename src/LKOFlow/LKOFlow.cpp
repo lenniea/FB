@@ -1,7 +1,7 @@
 ﻿#include "LKOFlow/LKOFlow.h"
 #include "Utils/Utils.h"
 
-#include <opencv2/imgproc.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <cmath>
 
 std::vector<double> LKOFlow::PyramidalLKOpticalFlow(cv::Mat& img1, cv::Mat& img2, cv::Rect& ROI)

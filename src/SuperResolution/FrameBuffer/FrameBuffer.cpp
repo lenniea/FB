@@ -1,6 +1,6 @@
 
 #include "FrameBuffer/FrameBuffer.h"
-#include <opencv2/imgproc.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 FrameBuffer::FrameBuffer(int bufferSize) : head(0), bufferSize(bufferSize)
 {

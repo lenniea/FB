@@ -1,7 +1,7 @@
 #include "Utils/Utils.h"
 #include <vector>
 #include <algorithm>
-#include <opencv2/core.hpp>
+#include <opencv2/core/core.hpp>
 
 int Utils::CalculateCount(const std::vector<bool> value_list, const bool value)
 {
