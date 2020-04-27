@@ -109,7 +109,7 @@ int main(int argc, char** argv)
     cout << "resultNameformat=" << resultNameFormat << " bufferSize=" << bufferSize << " srFactor=" << srFactor << endl;
 
     superResolution->SetBufferSize(bufferSize);
-    superResolution->SetSRFactor(4);
+    superResolution->SetSRFactor(srFactor);
 
 
 
